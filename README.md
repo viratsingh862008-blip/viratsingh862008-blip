@@ -6,7 +6,7 @@
 
 <a href="https://webteaconnect.vercel.app/"><img src="./cards/build.svg" width="32.5%" alt="Build: products and code" /></a>
 <a href="https://webteaconnect.vercel.app/"><img src="./cards/brand.svg" width="32.5%" alt="Brand: WebTea" /></a>
-<a href="https://www.instagram.com/hum.bihari.ai/"><img src="./cards/learn.svg" width="32.5%" alt="Learn: Aaruufication" /></a>
+<a href="https://www.instagram.com/aaryan.goat?mdxt=MXdxN3Jud2t6ZTJ5ag=="><img src="./cards/learn.svg" width="32.5%" alt="Learn: Aaruufication" /></a>
 
 <br/><br/>
 
@@ -26,7 +26,7 @@
 
 <br/>
 
-[WEBSITE](https://webteaconnect.vercel.app/) · [GITHUB](https://github.com/viratsingh862008-blip) · [INSTAGRAM](https://www.instagram.com/hum.bihari.ai/)
+[WEBSITE](https://webteaconnect.vercel.app/) · [GITHUB](https://github.com/viratsingh862008-blip) · [INSTAGRAM](https://www.instagram.com/aaryan.goat?mdxt=MXdxN3Jud2t6ZTJ5ag==)
 
 <sub>Born in Bihar. Built for what's next. · Paper / Ink / Blue / Red / Yellow</sub>
 
