@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="280" viewBox="0 0 380 280" role="img"><style>
+    .serif{font-family:'Bodoni 72', 'Didot', 'Georgia', serif}.sans{font-family:Arial, Helvetica, sans-serif}.mono{font-family:'Courier New', monospace}.ink{fill:#111111}.muted{fill:#707078}
+    @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes print{from{opacity:0}to{opacity:1}}
+    .rise{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+    </style><rect width="380" height="280" rx="22" fill="#FFC51B"/><text x="30" y="48" class="mono" fill="#111111" font-size="17" letter-spacing="3">LEARN</text><text x="342" y="48" class="sans" fill="#111111" font-size="25" text-anchor="end">↗</text><text x="30" y="145" class="serif" fill="#111111" font-size="43" font-style="italic">Build in public</text><text x="30" y="194" class="sans" fill="#111111" font-size="18">Experiments · Notes · Reels</text><text x="30" y="248" class="mono" fill="#111111" opacity=".8" font-size="13">EXPLORE / LEARN</text></svg>
