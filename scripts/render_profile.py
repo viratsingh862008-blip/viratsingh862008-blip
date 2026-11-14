@@ -24,7 +24,7 @@ class DayParser(HTMLParser):
         except ValueError: level=0
         count=a.get('data-count'); aria=a.get('aria-label','')
         if count is None:
-            m=re.search(r'([\\d,]+)\\s+contributions?',aria,re.I); count=m.group(1).replace(',','') if m else None
+            m=re.search(r'([\d,]+)\s+contributions?',aria,re.I); count=m.group(1).replace(',','') if m else None
         try: count=int(count) if count is not None else None
         except ValueError: count=None
         self.days[ds]={'date':ds,'level':level,'count':count}
