@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="380" height="220" viewBox="0 0 380 220" role="img"><style>
-    .serif{font-family:'Bodoni 72', 'Didot', 'Georgia', serif}.sans{font-family:Arial, Helvetica, sans-serif}.mono{font-family:'Courier New', monospace}.ink{fill:#111111}.muted{fill:#707078}
-    @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes print{from{opacity:0}to{opacity:1}}
-    .rise{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-    </style><rect width="380" height="220" rx="22" fill="#F4F4F1" stroke="#DEDED9"/><rect width="380" height="9" rx="4" fill="#3157F5"/><text x="28" y="60" class="mono muted" font-size="13" letter-spacing="2">SELECTED WORK / 01</text><text x="28" y="112" class="serif ink" font-size="35">WINGMENBOOK</text><text x="28" y="153" class="sans muted" font-size="17">Interactive brand experience</text><text x="28" y="192" class="mono" fill="#3157F5" font-size="14">OPEN PROJECT ↗</text></svg>
