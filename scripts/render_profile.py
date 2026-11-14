@@ -37,7 +37,9 @@ def fetch_data():
     today=date.today(); days=[x for x in days if date.fromisoformat(x['date'])<=today]
     complete=all(x['count'] is not None for x in days)
     monthly=Counter()
-    for x in days: monthly[x['date'][:7]] += x['count'] if x['count'] is not None else x['level']
+    for x in days:
+        value=x['count'] if complete else int(x['level']>0)
+        monthly[x['date'][:7]] += value
     daymap={date.fromisoformat(x['date']):x for x in days}
     cursor=today
     if not ((daymap.get(cursor,{}).get('count') or 0) or daymap.get(cursor,{}).get('level',0)): cursor-=timedelta(days=1)
@@ -67,11 +69,11 @@ def tile(label,headline,copy,color,dark=False):
     body=f'''<rect width="380" height="270" rx="22" fill="{color}"/><text x="30" y="48" fill="{fg}" font-family="monospace" font-size="17" letter-spacing="3">{label}</text><text x="348" y="48" text-anchor="end" fill="{fg}" font-size="22">↗</text><text x="30" y="142" fill="{fg}" font-family="Georgia,serif" font-size="45" font-style="italic">{escape(headline)}</text><text x="30" y="190" fill="{fg}" font-family="Arial,sans-serif" font-size="17">{escape(copy)}</text><text x="30" y="232" fill="{fg}" font-family="monospace" font-size="11" letter-spacing="2">EXPLORE  ↗</text>'''
     return svg(380,270,body,f'{label}: {headline}',copy)
 def activity(data):
-    months=sorted(data.get('monthly',{}).items())[-12:] or [('—',0)]; maxv=max([v for _,v in months]+[1]); total=data.get('total'); total_txt=f'{total:,} contributions' if total is not None else 'Contribution activity'; bars=[]
+    months=sorted(data.get('monthly',{}).items())[-12:] or [('—',0)]; maxv=max([v for _,v in months]+[1]); total=data.get('total'); total_txt=f'{total:,} contributions' if total is not None else f'{data.get("active_days",0):,} active days'; bars=[]
     for i,(m,v) in enumerate(months):
         h=150*v/maxv if maxv else 0; x=62+i*78; color=BLUE if v==maxv else INK
         bars.append(f'<rect x="{x}" y="{245-h}" width="56" height="{h}" rx="7" fill="{color}" opacity="0" style="animation:rise .55s {i*.06:.2f}s forwards"/>')
-        bars.append(f'<text x="{x+28}" y="273" text-anchor="middle" fill="{MUTED}" font-family="monospace" font-size="12">{escape(m[5:])}</text>')
+        bars.append(f'<text x="{x+28}" y="273" text-anchor="middle" fill="{MUTED}" font-family="monospace" font-size="12">{escape(datetime.strptime(m,'%Y-%m').strftime('%b') if len(m)==7 else m)}</text>')
         if v: bars.append(f'<text x="{x+28}" y="{235-h}" text-anchor="middle" fill="{BLUE}" font-family="monospace" font-size="11">{v:,}</text>')
     streak=data.get('current_streak',0); active=data.get('active_days',0); best=data.get('best_day',0)
     body=f'''<rect width="1200" height="360" rx="24" fill="{PAPER}"/><text x="48" y="48" fill="{MUTED}" font-family="monospace" font-size="16" letter-spacing="2">THE LAST 12 MONTHS ON GITHUB</text><text x="48" y="112" fill="{INK}" font-family="Georgia,serif" font-size="58" font-style="italic">{total_txt}</text><g>{''.join(bars)}</g><text x="1000" y="105" fill="{INK}" font-family="Georgia,serif" font-size="54" font-style="italic">{streak} days</text><text x="1000" y="133" fill="{MUTED}" font-family="Arial,sans-serif" font-size="17">current streak</text><path d="M1000 158H1150" stroke="#D8D8D2"/><text x="1000" y="220" fill="{INK}" font-family="Georgia,serif" font-size="46" font-style="italic">{active}</text><text x="1000" y="248" fill="{MUTED}" font-family="Arial,sans-serif" font-size="16">active days</text><path d="M1000 270H1150" stroke="#D8D8D2"/><text x="1000" y="320" fill="{INK}" font-family="Georgia,serif" font-size="34" font-style="italic">{best or '—'}</text><text x="1060" y="319" fill="{MUTED}" font-family="Arial,sans-serif" font-size="14">best day</text>'''
