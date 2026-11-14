@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Generate self-hosted animated SVG artwork for Aryan's GitHub profile."""
+"""Generate self-hosted animated SVG artwork for Aryan's GitHub profile.
+Refreshes on the daily workflow schedule."""
 from __future__ import annotations
 import json
 import os
